@@ -23,7 +23,8 @@ def r_dataset(filename):
     random_business = "PEnMU_He_qHoCfdoAKmjDQ" # hardcoding business
     print(f"> Success! The randomly chosen business_id is {random_business}")
     all_data = [json.loads(line) for line in lines]
-    selected_business_reviews = [one_data['text'] for one_data in all_data if one_data['business_id'] == random_business]
+    selected_business_reviews = \
+    [one_data['text'] for one_data in all_data if one_data['business_id'] == random_business]
     print(len(selected_business_reviews))
     return selected_business_reviews
 
@@ -60,7 +61,7 @@ def snowball(words):
 if __name__ == "__main__":
 
     # read data
-    reviews = r_dataset('review.json')
+    reviews = r_dataset('yelp_academic_dataset_review.json')
 
     # generate words and stemmed words
     words = break_words(reviews)
